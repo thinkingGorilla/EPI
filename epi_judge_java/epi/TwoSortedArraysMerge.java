@@ -11,13 +11,13 @@ public class TwoSortedArraysMerge {
      * 정렬된 정수 배열 두 개가 주어졌을 때, 두 배열을 정렬된 순서로 합친 뒤 그 결과를 첫 번째 배열에 넣는 프로그램을 작성하라.
      * 첫번째 배열의 끝에는 두 번째 배열을 모두 넣을 수 있을 만큼 충분한 빈칸이 있다고 가정해도 좋다.
      *
-     * @param A 첫번째 배열
-     * @param m 첫번째 배열의 길이
-     * @param B 두번째 배열
-     * @param n 두번째 배열의 길이
+     * @param A 첫 번째 배열
+     * @param m 첫 번째 배열의 길이
+     * @param B 두 번째 배열
+     * @param n 두 번째 배열의 길이
      */
-    public static void mergeTwoSortedArrays(List<Integer> A, int m,
-                                            List<Integer> B, int n) {
+    @EpiTest(testDataFile = "two_sorted_arrays_merge.tsv")
+    public static List<Integer> mergeTwoSortedArraysWrapper(List<Integer> A, int m, List<Integer> B, int n) {
         // 방법 1. 두 배열을 앞에서부터 동시에 순회하면서 더 작은 값을 결과 배열에 작성
         // 첫 번째 배열과 두 번째 배열의 길이가 각각 m과 n일 때 이 방법의 시간 복잡도는 O(m + n)
         // 하지만 두 번째 배열의 값이 첫 번째 배열의 값보다 작을 때, 첫 번째 배열의 모든 값을 오른쪽으로 한 칸씩 옮겨야 함
@@ -36,22 +36,18 @@ public class TwoSortedArraysMerge {
         while (b >= 0) {
             A.set(writeIdx--, B.get(b--));
         }
-        return;
-    }
-
-    @EpiTest(testDataFile = "two_sorted_arrays_merge.tsv")
-    public static List<Integer>
-    mergeTwoSortedArraysWrapper(List<Integer> A, int m, List<Integer> B, int n) {
-        mergeTwoSortedArrays(A, m, B, n);
         return A;
     }
 
     public static void main(String[] args) {
+        //@formatter:off
         System.exit(
-                GenericTest
-                        .runFromAnnotations(args, "TwoSortedArraysMerge.java",
-                                new Object() {
-                                }.getClass().getEnclosingClass())
-                        .ordinal());
+            GenericTest.runFromAnnotations(
+                args,
+                "TwoSortedArraysMerge.java",
+                new Object() {}.getClass().getEnclosingClass()
+            ).ordinal()
+        );
+        //@formatter:on
     }
 }
