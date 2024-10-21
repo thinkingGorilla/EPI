@@ -4,8 +4,6 @@ import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 
 public class SearchFirstGreaterValueInBst {
-    // 한글 테스트~
-
     /**
      * 이진 탐색 트리와 값 하나가 입력으로 주어졌을 때, 중위 순회의 결과 해당 값보다 큰 첫 번째 키를 반환하는 프로그램을 작성하라.
      *
@@ -50,9 +48,9 @@ public class SearchFirstGreaterValueInBst {
     }
 
     public static void main(String[] args) {
-        int[] sortedArray = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53};
-        BstNode<Integer> root = sortedArrayToBST(sortedArray, 0, sortedArray.length - 1);
-        System.out.println(findFirstGreaterThanK(root, 10).data);
+        // int[] sortedArray = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53};
+        // BstNode<Integer> root = sortedArrayToBST(sortedArray, 0, sortedArray.length - 1);
+        // System.out.println(findFirstGreaterThanK(root, 10).data);
 
         //@formatter:off
         System.exit(
