@@ -6,6 +6,16 @@ import epi.test_framework.GenericTest;
 public class CountBits {
     @EpiTest(testDataFile = "count_bits.tsv")
 
+    // 자바에서 비트 연산은 `비트 배열`을 지원하는 타입만 가능하다.
+    // 자바에서 비트 배열을 지원하는 타입은 int와 long 뿐이다.
+    //
+    // byte, short, char → 자동으로 int로 승격(promote)
+    // int는 그대로 사용
+    // long은 long끼리면 long 결과
+    // float/double은 비트연산 불가능 (컴파일 오류)
+    //
+    // int와 long이 섞여서 비트연산을 하면?
+    // 자바는 손실 없는 방향으로 변환하므로 int를 long으로 자동 타입 변환(= 승격)후 비트연산을 수행한다.
     public static short countBits(int x) {
         short numBits = 0;
         while (x != 0) {
