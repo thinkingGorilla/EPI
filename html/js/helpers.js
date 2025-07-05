@@ -78,9 +78,9 @@ function translateProblemMappings(data) {
     function translateProblem(name, data) {
         let result = {
             name: name,
-            cpp: translateLanguageEntry('C++', 'epi_judge_cpp/', data),
-            java: translateLanguageEntry('Java', 'epi_judge_java/epi/', data),
-            python: translateLanguageEntry('Python', 'epi_judge_python/', data)
+            cpp: translateLanguageEntry('C++', 'epi_judge_cpp', data),
+            java: translateLanguageEntry('Java', 'epi_judge_java/epi/html/', data),
+            python: translateLanguageEntry('Python', 'epi_judge_python', data)
         };
         if (result.cpp || result.java || result.python) {
             return result;
