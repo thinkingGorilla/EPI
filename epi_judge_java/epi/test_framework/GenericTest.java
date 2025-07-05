@@ -313,23 +313,25 @@ public class GenericTest {
     }
 
     private static String wrapJavaInHtml(String title, String code) {
+        // @formatter:off
         return String.format(
                 """
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                          <meta charset="UTF-8">
-                          <title>%s</title>
-                          <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
-                          <link rel="stylesheet" href="../../html/css/index.css">
-                        </head>
-                        <body>
-                          <pre>%s</pre>
-                        </body>
-                        </html>
-                        """,
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                  <meta charset="UTF-8">
+                  <title>%s</title>
+                  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+                  <link rel="stylesheet" href="../../html/css/index.css">
+                </head>
+                <body>
+                  <pre>%s</pre>
+                </body>
+                </html>
+                """,
                 title, escapeHtml(code)
         );
+        // @formatter:on
     }
 
     private static String escapeHtml(String text) {
