@@ -71,7 +71,16 @@ function translateProblemMappings(data) {
             return null
         }
         data = data[lang_field];
-        data.filename = dirname + lang_field.split(" ")[1];
+        
+        if (name === 'Java') {
+            // .java -> .html로 확장자 변환
+            let rawName = lang_field.split(" ")[1];
+            let htmlName = rawName.replace(/\.java$/, ".html");
+            data.filename = dirname + htmlName;
+        } else {
+            data.filename = dirname + lang_field.split(" ")[1];
+        }
+
         return data
     }
 
