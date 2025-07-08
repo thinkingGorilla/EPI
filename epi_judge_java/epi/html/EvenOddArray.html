@@ -28,7 +28,7 @@ public class EvenOddArray {
         int nextEven = 0;
         int nextOdd = A.size() - 1;
         // 시간 복잡도는 배열의 길이 만큼이다. → O(n)
-        // 배열의 앞에서는 짝수를, 뒤에서는 홀수로 채운다.
+        // 배열의 앞에서 부터는 짝수를, 뒤에서 부터는 홀수로 채운다.
         while (nextEven &lt; nextOdd) {
             // 배열의 요소가 짝수라면 홀수 포인터를 증가시킨다.
             if (A.get(nextEven) % 2 == 0) {
