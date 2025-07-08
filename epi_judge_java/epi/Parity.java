@@ -27,7 +27,10 @@ public class Parity {
     }
 
     /**
-     * result는 0과 1 사이를 반복하고 1로 세팅된 비트 중 가장 낮은 비트를 지운다.
+     * 1을 뺐을 때 빌림이 없었다면 해당 자리의 1이 곧바로 0으로 바뀐다.
+     * 반대로 빌림이 발생하면 0 비트를 따라 전파되다가 처음 1을 만나는 자리에서 빌림이 해결되며, 그 자리의 1이 0으로 바뀐다.
+     * 빌림이 멈추는 자리가 바로 가장 낮은 1비트 자리이며, 패리티 알고리즘에서 계산하는 대상이 된다.
+     *
      * 시간 복잡도는 1로 세팅된 비트 개수 = k, O(k)
      * e.g. (00101100)₂ & (00101100)₂ - 1 = (00101100)₂ & (00101011)₂
      * 빌림이 발생한 자릿수부터 하위 비트를 AND 연산을 통해 0으로 지운다.
@@ -36,8 +39,8 @@ public class Parity {
         // 패리티 계산에서는 단지 1의 개수가 홀수인지 짝수인지 알면 되므로 결과값이 1 또는 0이어야 한다.
         short result = 0;
         while (x != 0) {
-            result ^= 1;
             x &= (x - 1);
+            result ^= 1;
         }
         return result;
     }
@@ -87,6 +90,7 @@ public class Parity {
     }
 
     public static void main(String[] args) {
+
         // @formatter:off
         System.exit(
             GenericTest.runFromAnnotations(
