@@ -1,4 +1,13 @@
-package epi;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BuyAndSellStock</title>
+  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+  <link rel="stylesheet" href="../../html/css/index.css">
+</head>
+<body>
+  <pre>package epi;
 
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
@@ -6,9 +15,8 @@ import epi.test_framework.GenericTest;
 import java.util.List;
 
 public class BuyAndSellStock {
-    @EpiTest(testDataFile = "buy_and_sell_stock.tsv")
-    public static double computeMaxProfit(List<Double> prices) {
-        // 최초 최소 가격은 최대값으로 설정한다.
+    @EpiTest(testDataFile = &quot;buy_and_sell_stock.tsv&quot;)
+    public static double computeMaxProfit(List&lt;Double&gt; prices) {
         double minPrice = Double.MAX_VALUE, maxProfit = 0.0;
         // 가격을 순회하면서 최소 가격을 기록한다.
         // 이전 최대 이익과 현재 가격과 최대 가격의 차가 이전 최대 이익을 넘겼다면,
@@ -26,10 +34,13 @@ public class BuyAndSellStock {
         System.exit(
             GenericTest.runFromAnnotations(
                 args,
-                "BuyAndSellStock.java",
+                &quot;BuyAndSellStock.java&quot;,
                 new Object() {}.getClass().getEnclosingClass()
             ).ordinal()
         );
         // @formatter:on
     }
 }
+</pre>
+</body>
+</html>
