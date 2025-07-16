@@ -90,7 +90,6 @@ public class Parity {
     }
 
     public static void main(String[] args) {
-
         // @formatter:off
         System.exit(
             GenericTest.runFromAnnotations(

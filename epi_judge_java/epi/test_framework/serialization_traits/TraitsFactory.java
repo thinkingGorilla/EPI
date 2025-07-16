@@ -1,10 +1,8 @@
 
 package epi.test_framework.serialization_traits;
 
-import epi.BinaryTree;
-import epi.BinaryTreeNode;
-import epi.BstNode;
-import epi.ListNode;
+import epi.*;
+import epi.DutchNationalFlag.FlagColor;
 import epi.test_framework.EpiUserType;
 
 import java.lang.reflect.ParameterizedType;
@@ -35,6 +33,7 @@ public class TraitsFactory {
         put(float.class, new FloatTrait());
         put(Double.class, new DoubleTrait());
         put(double.class, new DoubleTrait());
+        put(FlagColor.class, new FlagColorTrait());
       }
     };
   }

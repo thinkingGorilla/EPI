@@ -1,4 +1,13 @@
-package epi;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DutchNationalFlag</title>
+  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+  <link rel="stylesheet" href="../../html/css/index.css">
+</head>
+<body>
+  <pre>package epi;
 
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
@@ -9,14 +18,14 @@ import java.util.List;
 public class DutchNationalFlag {
     public static enum FlagColor {RED, WHITE, BLUE}
 
-    @EpiTest(testDataFile = "dutch_national_flag.tsv")
-    public static void dutchFlagPartition(List<FlagColor> A, int pivotIndex) {
+    @EpiTest(testDataFile = &quot;dutch_national_flag.tsv&quot;)
+    public static void dutchFlagPartition(List&lt;FlagColor&gt; A, int pivotIndex) {
         // solution_1(A, pivotIndex);
         // solution_2(A, pivotIndex);
         solution_3(A, pivotIndex);
     }
 
-    public static void solution_1(List<FlagColor> A, int pivotIndex) {
+    public static void solution_1(List&lt;FlagColor&gt; A, int pivotIndex) {
         FlagColor pivot = A.get(pivotIndex);
 
         // 피벗보다 작은 요소를 찾아 앞에서부터 쌓는다.
@@ -25,9 +34,9 @@ public class DutchNationalFlag {
         // 그리고 피벗보다 작은 요소로 채워진 더이상 사용하지 않도록 외부 for-loop는 인덱스를 증가한다.
         // 이로인해 시간 복잡도는 O(n²)이 된다.
         // 결국에 외부 루프는 피벗보다 작은 요소로 채워진 인덱스를 기록하기 위함인데 굳이 for-loop로 구현할 필요가 있을까?
-        for (int i = 0; i < A.size(); i++) {
-            for (int j = i + 1; j < A.size(); j++) {
-                if (A.get(j).ordinal() < pivot.ordinal()) {
+        for (int i = 0; i &lt; A.size(); i++) {
+            for (int j = i + 1; j &lt; A.size(); j++) {
+                if (A.get(j).ordinal() &lt; pivot.ordinal()) {
                     Collections.swap(A, i, j);
                     break;
                 }
@@ -38,10 +47,10 @@ public class DutchNationalFlag {
         // 만일 피벗보다 작은 요소를 만나면 즉시 멈춘다.
         // 왜냐하면 이미 앞의 루프문에서 피벗보다 작은 요소를 전부 앞으로 옮겼기 때문이다.
         // 즉 작은 요소와 큰 요소가 교차하는 지점부터는 더이상 정렬하지 않는다.
-        for (int i = A.size() - 1; i >= 0 && A.get(i).ordinal() >= pivot.ordinal(); i--) {
-            for (int j = i - 1; j >= 0 && A.get(j).ordinal() >= pivot.ordinal(); j--) {
+        for (int i = A.size() - 1; i &gt;= 0 &amp;&amp; A.get(i).ordinal() &gt;= pivot.ordinal(); i--) {
+            for (int j = i - 1; j &gt;= 0 &amp;&amp; A.get(j).ordinal() &gt;= pivot.ordinal(); j--) {
                 // 피벗보다 크거나 같은 요소 중 큰 요소만 골라 뒤에서부터 쌓는다.
-                if (A.get(j).ordinal() > pivot.ordinal()) {
+                if (A.get(j).ordinal() &gt; pivot.ordinal()) {
                     Collections.swap(A, i, j);
                     break;
                 }
@@ -49,34 +58,34 @@ public class DutchNationalFlag {
         }
     }
 
-    public static void solution_2(List<FlagColor> A, int pivotIndex) {
+    public static void solution_2(List&lt;FlagColor&gt; A, int pivotIndex) {
         FlagColor pivot = A.get(pivotIndex);
 
         // solution_1의 문제를 해결하기 위해 외부 for-loop를 정수형 변수로 대체한다.
         // 이로 인해 시간 복잡도는 O(n)이 된다.
         int smaller = 0;
-        for (int i = 0; i < A.size(); i++) {
-            if (A.get(i).ordinal() < pivot.ordinal()) {
+        for (int i = 0; i &lt; A.size(); i++) {
+            if (A.get(i).ordinal() &lt; pivot.ordinal()) {
                 // i번째 요소를 배열의 samller 인덱스 위치와 바꾼다.
                 Collections.swap(A, i, smaller++);
             }
         }
 
         int larger = A.size() - 1;
-        for (int i = A.size() - 1; i >= 0 && A.get(i).ordinal() >= pivot.ordinal(); i--) {
-            if (A.get(i).ordinal() > pivot.ordinal()) {
+        for (int i = A.size() - 1; i &gt;= 0 &amp;&amp; A.get(i).ordinal() &gt;= pivot.ordinal(); i--) {
+            if (A.get(i).ordinal() &gt; pivot.ordinal()) {
                 Collections.swap(A, i, larger--);
             }
         }
     }
 
     // 한 번의 loop에서 모든 정렬을 수행한다.
-    public static void solution_3(List<FlagColor> A, int pivotIndex) {
+    public static void solution_3(List&lt;FlagColor&gt; A, int pivotIndex) {
         FlagColor pivot = A.get(pivotIndex);
         int smaller = 0, equal = 0, larger = A.size() - 1;
 
-        while (equal < larger) {
-            if (A.get(equal).ordinal() < pivot.ordinal()) {
+        while (equal &lt; larger) {
+            if (A.get(equal).ordinal() &lt; pivot.ordinal()) {
                 Collections.swap(A, equal++, smaller++);
             } else if (A.get(equal).ordinal() == pivot.ordinal()) {
                 equal++;
@@ -95,7 +104,7 @@ public class DutchNationalFlag {
         System.exit(
             GenericTest.runFromAnnotations(
                 args,
-                "DutchNationalFlag.java",
+                &quot;DutchNationalFlag.java&quot;,
                 new Object() {}.getClass().getEnclosingClass()
             ).ordinal()
         );
@@ -104,7 +113,7 @@ public class DutchNationalFlag {
         /*
         // @formatter:off
 
-        List<FlagColor> colors = new ArrayList<>(
+        List&lt;FlagColor&gt; colors = new ArrayList&lt;&gt;(
             List.of(
                 FlagColor.WHITE, FlagColor.WHITE, FlagColor.BLUE, FlagColor.BLUE,
                 FlagColor.WHITE, FlagColor.RED, FlagColor.BLUE, FlagColor.WHITE,
@@ -121,3 +130,6 @@ public class DutchNationalFlag {
         */
     }
 }
+</pre>
+</body>
+</html>
