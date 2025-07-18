@@ -1,12 +1,21 @@
-package epi;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IsStringPalindromic</title>
+  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+  <link rel="stylesheet" href="../../html/css/index.css">
+</head>
+<body>
+  <pre>package epi;
 
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 
 public class IsStringPalindromic {
-    @EpiTest(testDataFile = "is_string_palindromic.tsv")
+    @EpiTest(testDataFile = &quot;is_string_palindromic.tsv&quot;)
     public static boolean isPalindromic(String s) {
-        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+        for (int i = 0, j = s.length() - 1; i &lt; j; ++i, --j) {
             if (s.charAt(i) != s.charAt(j)) {
                 return false;
             }
@@ -19,10 +28,13 @@ public class IsStringPalindromic {
         System.exit(
             GenericTest.runFromAnnotations(
                 args,
-                "IsStringPalindromic.java",
+                &quot;IsStringPalindromic.java&quot;,
                 new Object() {}.getClass().getEnclosingClass()
             ).ordinal()
         );
         // @formatter:on
     }
 }
+</pre>
+</body>
+</html>

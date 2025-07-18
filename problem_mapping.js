@@ -472,7 +472,7 @@ problem_mapping = {
                 "total": 10000
             },
             "Java: IsStringPalindromic.java": {
-                "passed": 0,
+                "passed": 10000,
                 "total": 10000
             },
             "Python: is_string_palindromic.py": {
@@ -486,7 +486,7 @@ problem_mapping = {
                 "total": 15002
             },
             "Java: StringIntegerInterconversion.java": {
-                "passed": 0,
+                "passed": 15002,
                 "total": 15002
             },
             "Python: string_integer_interconversion.py": {
