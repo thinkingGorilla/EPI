@@ -37,7 +37,7 @@ public class StringIntegerInterconversion {
             // '0'은 48이므로 숫자 문자열의 문자가 아스키 코드의 48~57까지 사용되었다면
             // 문자 - '0'의 결과는 0부터 9까지 나온다.
             final int digit = s.charAt(i) - '0';
-            // 기존값의 자릿수를 올린 뒤 digit을 더한다.
+            // 가장 오른쪽 자리의 숫자 자릿수를 올린 뒤 digit을 더한다.
             // e.g. "-4176473"
             // 1st iter → (0 * 10) + 4
             // 2nd iter → (4 * 10) + 1
