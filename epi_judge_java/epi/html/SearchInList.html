@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SearchInList</title>
+  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+  <link rel="stylesheet" href="../../html/css/index.css">
+</head>
+<body>
+  <pre>package epi;
+
+import epi.test_framework.EpiTest;
+import epi.test_framework.GenericTest;
+
+public class SearchInList {
+
+    public static ListNode&lt;Integer&gt; searchList(ListNode&lt;Integer&gt; node, int key) {
+        while (node != null &amp;&amp; node.data != key) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    @EpiTest(testDataFile = &quot;search_in_list.tsv&quot;)
+    public static int searchListWrapper(ListNode&lt;Integer&gt; L, int key) {
+        ListNode&lt;Integer&gt; result = searchList(L, key);
+        return result != null ? result.data : -1;
+    }
+
+    public static void main(String[] args) {
+        // @formatter:off
+        System.exit(
+            GenericTest.runFromAnnotations(
+                args,
+                &quot;SearchInList.java&quot;,
+                new Object() {}.getClass().getEnclosingClass()
+            ).ordinal()
+        );
+        // @formatter:on
+    }
+}
+</pre>
+</body>
+</html>

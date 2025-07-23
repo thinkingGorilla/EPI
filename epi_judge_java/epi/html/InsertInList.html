@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>InsertInList</title>
+  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+  <link rel="stylesheet" href="../../html/css/index.css">
+</head>
+<body>
+  <pre>package epi;
+
+import epi.test_framework.EpiTest;
+import epi.test_framework.GenericTest;
+
+public class InsertInList {
+
+    @EpiTest(testDataFile = &quot;insert_in_list.tsv&quot;)
+    public static ListNode&lt;Integer&gt; insertAfter(ListNode&lt;Integer&gt; node, int oneBasedIndex, int newNodeData) {
+        // 이때 tmp와 node는 &quot;같은&quot; 객체(= 첫번째 노드)를 가리킴
+        ListNode&lt;Integer&gt; tmp = node;
+        // nodeIdx는
+        while (--oneBasedIndex &gt; 0) {
+            // tmp는 n 번째 노드를 가리키게 변경됨
+            // node는 여전히 첫 번째 노드만 가리킴
+            tmp = tmp.next;
+        }
+
+        tmp.next = new ListNode&lt;&gt;(newNodeData, tmp.next);
+        return node;
+    }
+
+    public static void main(String[] args) {
+        // @formatter:off
+        System.exit(
+            GenericTest.runFromAnnotations(
+                args,
+                &quot;InsertInList.java&quot;,
+                new Object() {}.getClass().getEnclosingClass()
+            ).ordinal()
+        );
+        // @formatter:on
+    }
+}
+</pre>
+</body>
+</html>
