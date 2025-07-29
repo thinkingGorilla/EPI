@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SortedListsMerge</title>
+  <link rel="stylesheet" href="../../html/css/material.indigo-pink.css">
+  <link rel="stylesheet" href="../../html/css/index.css">
+</head>
+<body>
+  <pre>package epi;
+
+import epi.test_framework.EpiTest;
+import epi.test_framework.GenericTest;
+
+import static java.util.Objects.nonNull;
+
+public class SortedListsMerge {
+
+    @EpiTest(testDataFile = &quot;sorted_lists_merge.tsv&quot;)
+    public static ListNode&lt;Integer&gt; mergeTwoSortedLists(ListNode&lt;Integer&gt; L1,
+                                                        ListNode&lt;Integer&gt; L2) {
+        // 더미 헤드 생성
+        ListNode&lt;Integer&gt; dummyHead = new ListNode&lt;&gt;(0, null);
+        ListNode&lt;Integer&gt; current = dummyHead;
+        ListNode&lt;Integer&gt; p1 = L1, p2 = L2;
+
+        while(nonNull(p1) &amp;&amp; nonNull(p2)) {
+            if (p1.data &lt;= p2.data) {
+                current = current.next = p1;
+                p1 = p1.next;
+            } else {
+                current = current.next = p2;
+                p2 = p2.next;
+            }
+        }
+        current.next = nonNull(p1) ? p1 : p2;
+
+        return dummyHead.next;
+    }
+
+    public static void main(String[] args) {
+        // @formatter:off
+        System.exit(
+            GenericTest.runFromAnnotations(
+                args,
+                &quot;SortedListsMerge.java&quot;,
+                new Object() {}.getClass().getEnclosingClass()
+            ).ordinal()
+        );
+        // @formatter:on
+    }
+}
+</pre>
+</body>
+</html>
